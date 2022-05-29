@@ -6,12 +6,18 @@ export default function ApplicationDetail(url) {
   const [post, setPost] = useState(null);
 
   React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost([...response.data["email"]]);
-      console.log(response.data);
-      console.log(post);
-      return post;
-    });
+    axios
+      .get(baseURL, {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        setPost([...response.data["email"]]);
+        console.log(response.data);
+        console.log(post);
+        return post;
+      });
   }, []);
 
   //   if (!post) {

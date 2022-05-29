@@ -4,23 +4,17 @@ import Chip from "@mui/material/Chip";
 
 const baseURL = "http://127.0.0.1:8000/";
 
-// const [name, setName] = useState("sdfdsf");
-
 const columns = [
   {
     title: "id",
     dataIndex: "id",
     key: "id",
-    // render: (id) => (
-    //   <a href={baseURL + "application-detail/" + id.toString()}>{id}</a>
-    // ),
     responsive: ["sm"],
   },
   {
     title: "Name",
     dataIndex: "name",
     key: "name",
-    // render: (name) => <a href={baseURL + "application-detail/"}>{name}</a>,
     responsive: ["sm"],
   },
   {
@@ -46,18 +40,6 @@ const columns = [
     ),
     responsive: ["sm"],
   },
-  // {
-  //   title: "Linkedin",
-  //   dataIndex: "linkedin",
-  //   key: "linkedin",
-  //   responsive: ["sm"],
-  // },
-  // {
-  //   title: "Webiste",
-  //   dataIndex: "webiste",
-  //   key: "webiste",
-  //   responsive: ["sm"],
-  // },
   {
     title: "Status",
     dataIndex: "status",
@@ -80,7 +62,7 @@ const columns = [
 ];
 
 const TableShow = ({ data, isAdmin }) => (
-  <Table columns={columns} dataSource={data} isAdmin={isAdmin} />
+  <Table columns={columns} dataSource={data} />
 );
 
 export default TableShow;

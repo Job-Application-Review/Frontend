@@ -5,7 +5,11 @@ export default function Api2() {
   const [applicationData, setApplicationData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://127.0.0.1:8000/application-list/")
+    fetch("http://127.0.0.1:8000/application-list/", {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem("token")}`,
+      },
+    })
       .then((results) => results.json())
       .then((data) => {
         setApplicationData(data);
