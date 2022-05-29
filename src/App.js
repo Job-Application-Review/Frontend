@@ -81,7 +81,7 @@ function App() {
 
   let loggedInComp;
   let signInComp;
-  if (!auth.logged_in) {
+  if (auth.username != "") {
     signInComp = (
       <Route
         exact

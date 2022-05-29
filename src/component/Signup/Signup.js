@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Form from "react-bootstrap/Form";
+import TextField from "@mui/material/TextField";
 import Button from "react-bootstrap/Button";
 
 function Signup() {
@@ -50,7 +51,7 @@ function Signup() {
 
   return (
     <div>
-      <form onSubmit={(e) => handle_signup(e, signupData)}>
+      {/* <form onSubmit={(e) => handle_signup(e, signupData)}>
         <h4>Sign Up</h4>
         <label htmlFor="username">Username</label>
         <input
@@ -67,13 +68,24 @@ function Signup() {
           onChange={handle_change}
         />
         <input type="submit" />
-      </form>
+      </form> */}
 
       <Form onSubmit={(e) => handle_signup(e, signupData)}>
         <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control
+          {/* <Form.Label>Username</Form.Label> */}
+          {/* <Form.Control
             type="text"
+            name="username"
+            value={signupData.username}
+            onChange={handle_change}
+            placeholder="Enter your username"
+          /> */}
+          <TextField
+            id="outlined-basic"
+            label="Email Address"
+            variant="outlined"
+            type="text"
+            margin="normal"
             name="username"
             value={signupData.username}
             onChange={handle_change}
@@ -81,9 +93,20 @@ function Signup() {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
+          {/* <Form.Label>Password:</Form.Label> */}
+          {/* <Form.Control
             type="password"
+            name="password"
+            value={signupData.password}
+            onChange={handle_change}
+            placeholder="Enter your your password"
+          /> */}
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            variant="outlined"
+            type="password"
+            margin="normal"
             name="password"
             value={signupData.password}
             onChange={handle_change}
@@ -91,7 +114,7 @@ function Signup() {
           />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Click here to submit form
+          Sign Up to Apply
         </Button>
       </Form>
     </div>

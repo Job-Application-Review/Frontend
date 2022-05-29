@@ -7,8 +7,9 @@ import TextField from "@mui/material/TextField";
 import Chip from "@mui/material/Chip";
 import SendIcon from "@mui/icons-material/Send";
 import styles from "./FormComp.module.css";
-const baseURL = "http://127.0.0.1:8000/";
+import swal from "sweetalert";
 
+const baseURL = "http://127.0.0.1:8000/";
 const FormComp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,6 +67,17 @@ const FormComp = () => {
       )
       .then((response) => {
         console.log(response);
+        if (response.status == 200) {
+          swal({
+            icon: "success",
+            title: "Application Successfully subimtted",
+          });
+        } else {
+          swal({
+            icon: "warning",
+            title: "There's some error occurred",
+          });
+        }
       });
   };
 
@@ -200,7 +212,7 @@ const FormComp = () => {
         {/* <Form.Label>Enter your reason:</Form.Label> */}
         <TextField
           id="outlined-basic"
-          label={'Reason to join margin="normal"'}
+          label={"Reason to join"}
           // label={'margin="normal"'}
           margin="normal"
           variant="outlined"
